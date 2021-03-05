@@ -25,6 +25,6 @@ from sqlalchemy_continuum.plugins import ActivityPlugin
 ma = Marshmallow()  # pylint: disable=invalid-name
 db = SQLAlchemy()  # pylint: disable=invalid-name
 
-activity_plugin = ActivityPlugin()  # pylint: disable=invalid-name
+# activity_plugin = ActivityPlugin()  # pylint: disable=invalid-name
 
-make_versioned(user_cls=None, plugins=[activity_plugin])
+# make_versioned(user_cls=None, plugins=[activity_plugin])
