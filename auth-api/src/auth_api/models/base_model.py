@@ -149,19 +149,20 @@ class BaseModel(db.Model):
     @classmethod
     def create_activity(cls, obj, is_delete=False):
         """Create activity records if the model is versioned."""
-        if isinstance(obj, VersionedModel) and not current_app.config.get('DISABLE_ACTIVITY_LOGS'):
-            if is_delete:
-                verb = 'delete'
-            else:
-                verb = 'update' if obj.modified_by is not None else 'create'
-
-            activity = activity_plugin.activity_cls(verb=verb, object=obj, data={
-                'user_name': g.jwt_oidc_token_info.get('preferred_username',
-                                                       None) if g and 'jwt_oidc_token_info' in g else None,
-                'remote_addr': fetch_remote_addr()
-            })
-
-            db.session.add(activity)
+        # if isinstance(obj, VersionedModel) and not current_app.config.get('DISABLE_ACTIVITY_LOGS'):
+        #     if is_delete:
+        #         verb = 'delete'
+        #     else:
+        #         verb = 'update' if obj.modified_by is not None else 'create'
+        #
+        #     activity = activity_plugin.activity_cls(verb=verb, object=obj, data={
+        #         'user_name': g.jwt_oidc_token_info.get('preferred_username',
+        #                                                None) if g and 'jwt_oidc_token_info' in g else None,
+        #         'remote_addr': fetch_remote_addr()
+        #     })
+        #
+        #     db.session.add(activity)
+        pass
 
 
 class BaseCodeModel(BaseModel):
@@ -190,6 +191,6 @@ class VersionedModel(BaseModel):
 
     __abstract__ = True
 
-    __versioned__ = {
-        'exclude': []
-    }
+    # __versioned__ = {
+    #     'exclude': []
+    # }

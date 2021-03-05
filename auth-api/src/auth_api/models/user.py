@@ -37,9 +37,9 @@ class User(BaseModel):
 
     __tablename__ = 'users'
 
-    __versioned__ = {
-        'exclude': ['modified', 'modified_by_id', 'modified_by', 'created']
-    }
+    # __versioned__ = {
+    #     'exclude': ['modified', 'modified_by_id', 'modified_by', 'created']
+    # }
 
     id = Column(Integer, primary_key=True)
     username = Column('username', String(100), index=True)
