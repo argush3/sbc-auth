@@ -21,7 +21,7 @@ from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import relationship
 # from sqlalchemy_continuum.plugins.flask import fetch_remote_addr
 
-from .db import db, activity_plugin
+from .db import db #, activity_plugin
 
 
 class BaseModel(db.Model):
